@@ -1,5 +1,9 @@
 // import PropTypes from 'prop-types';
-import { FeedbackStats } from './FeedbackStyled';
+import {
+  FeedbackStats,
+  FeedbackButtonWrapper,
+  FeedbackButton,
+} from './FeedbackStyled';
 import { Component } from 'react';
 
 export class Feedback extends Component {
@@ -8,6 +12,7 @@ export class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
+
   handleOnClickBtnGood = () => {
     this.setState(prevState => {
       return {
@@ -29,20 +34,40 @@ export class Feedback extends Component {
       };
     });
   };
+  countTotalFeedback = () => {
+    const sum = this.state.good + this.state.neutral + this.state.bad;
+    return sum;
+  };
+
+  countPositiveFeedbackPercentage() {
+    const percentage = Math.round(
+      (this.state.good * 100) /
+        (this.state.good + this.state.neutral + this.state.bad)
+    );
+    return percentage;
+  }
 
   render() {
     return (
       <FeedbackStats>
         <h2>Please leave feedback</h2>
-        <div>
-          <button onClick={this.handleOnClickBtnGood}>Good</button>
-          <button onClick={this.handleOnClickBtnNeutral}>Neutral</button>
-          <button onClick={this.handleOnClickBtnBad}>Bad</button>
-        </div>
+        <FeedbackButtonWrapper>
+          <FeedbackButton onClick={this.handleOnClickBtnGood}>
+            Good
+          </FeedbackButton>
+          <FeedbackButton onClick={this.handleOnClickBtnNeutral}>
+            Neutral
+          </FeedbackButton>
+          <FeedbackButton onClick={this.handleOnClickBtnBad}>
+            Bad
+          </FeedbackButton>
+        </FeedbackButtonWrapper>
         <h2>Statistics</h2>
         <p>Good:{this.state.good}</p>
         <p>Neutral:{this.state.neutral}</p>
         <p>Bad:{this.state.bad}</p>
+        <p>Total:{this.countTotalFeedback()}</p>
+        <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
       </FeedbackStats>
     );
   }
