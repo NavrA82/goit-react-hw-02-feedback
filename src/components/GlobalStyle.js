@@ -4,8 +4,9 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #11551177;
+  background-color: rgba(238,191,49,0.2);
   line-height: 1.5;
+  color: 
 
 }
 a {

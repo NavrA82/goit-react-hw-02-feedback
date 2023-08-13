@@ -1,6 +1,10 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-import { StatisticsWrap } from './StatisticsStyled';
+import {
+  StatisticsWrap,
+  TitleStatistics,
+  InfoStatistics,
+} from './StatisticsStyled';
 
 import { Notification } from '../Notification/Notification';
 
@@ -13,24 +17,28 @@ export const Statistics = ({
 }) => {
   return (
     <StatisticsWrap>
-      <h2>Statistics</h2>
+      <TitleStatistics>Statistics</TitleStatistics>
       {totalFeedback === 0 ? (
         <Notification message="There is no feedback" />
       ) : (
         <>
-          <p>Good:{good}</p>
-          <p>Neutral:{neutral}</p>
-          <p>Bad:{bad}</p>
-          <p>Total:{totalFeedback}</p>
-          <p>Positive feedback: {positiveFeedbackPercentage}%</p>
+          <InfoStatistics>Good:{good}</InfoStatistics>
+          <InfoStatistics>Neutral:{neutral}</InfoStatistics>
+          <InfoStatistics>Bad:{bad}</InfoStatistics>
+          <InfoStatistics>Total:{totalFeedback}</InfoStatistics>
+          <InfoStatistics>
+            Positive feedback: {positiveFeedbackPercentage}%
+          </InfoStatistics>
         </>
       )}
     </StatisticsWrap>
   );
 };
 
-// FriendListItem.propTypes = {
-//   status: PropTypes.bool.isRequired,
-//   avatar: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-// };
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  positiveFeedbackPercentage: PropTypes.number,
+};
