@@ -1,11 +1,6 @@
 // import PropTypes from 'prop-types';
 
-// import {
-//   ListItemOnLine,
-//   ListItemName,
-//   ListItemAvatar,
-//   ListItem,
-// } from './FriendListItem.styled';
+import { StatisticsWrap } from './StatisticsStyled';
 
 import { Notification } from '../Notification/Notification';
 
@@ -17,7 +12,7 @@ export const Statistics = ({
   positiveFeedbackPercentage,
 }) => {
   return (
-    <>
+    <StatisticsWrap>
       <h2>Statistics</h2>
       {totalFeedback === 0 ? (
         <Notification message="There is no feedback" />
@@ -30,7 +25,7 @@ export const Statistics = ({
           <p>Positive feedback: {positiveFeedbackPercentage}%</p>
         </>
       )}
-    </>
+    </StatisticsWrap>
   );
 };
 
