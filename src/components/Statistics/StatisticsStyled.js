@@ -9,7 +9,7 @@ export const StatisticsWrap = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  margin: 40px auto;
+  margin: 0 auto;
   min-width: 300px;
   padding: 24px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,

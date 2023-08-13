@@ -6,8 +6,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: rgba(238,191,49,0.2);
   line-height: 1.5;
-  color: 
-
 }
 a {
   text-decoration: none;
